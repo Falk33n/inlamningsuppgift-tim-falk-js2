@@ -17,7 +17,7 @@ type MovieProps = {
 export const MovieSelection = forwardRef<
   HTMLSelectElement,
   SelectHTMLAttributes<HTMLSelectElement>
->((_, ref) => {
+>(({ onChange, ...props }, ref) => {
   const [movies, setMovies] = useState<MovieProps>([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -36,7 +36,7 @@ export const MovieSelection = forwardRef<
     getMovies();
   }, []);
 
-  if (isLoading) return <Skeleton />;
+  if (isLoading) return <Skeleton className='mb-4 rounded-md w-52 h-8' />;
   return (
     <div className='movie-container'>
       <label htmlFor='movie'>Pick a movie:</label>
@@ -44,6 +44,8 @@ export const MovieSelection = forwardRef<
         name='movie'
         id='movie'
         ref={ref}
+        onChange={onChange}
+        {...props}
       >
         {movies.map((movie, i) => (
           <option

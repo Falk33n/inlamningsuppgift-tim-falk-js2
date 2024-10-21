@@ -1,16 +1,20 @@
 'use client';
 
 import type { SelectedSeats } from '@/components';
-import { useState } from 'react';
 
 type SeatProps = {
-  isOccupied?: boolean;
+  isOccupied: boolean;
+  isSelected: boolean;
+  setIsSelected: (newState: boolean) => void;
   setSelectedSeats: SelectedSeats['setSelectedSeats'];
 };
 
-export const Seat = ({ isOccupied = false, setSelectedSeats }: SeatProps) => {
-  const [isSelected, setIsSelected] = useState(false);
-
+export const Seat = ({
+  isOccupied,
+  isSelected,
+  setIsSelected,
+  setSelectedSeats,
+}: SeatProps) => {
   const handleClick = () => {
     if (isOccupied) return;
     const newSelectionState = !isSelected;
