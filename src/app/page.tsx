@@ -1,3 +1,5 @@
+import { SeatContainer } from '../components';
+
 export default function Home() {
   return (
     <>
@@ -27,69 +29,7 @@ export default function Home() {
           <small>Occupied</small>
         </li>
       </ul>
-      <div className='container'>
-        <div className='screen'></div>
-        <div className='row'>
-          <div className='seat'></div>
-          <div className='seat'></div>
-          <div className='seat'></div>
-          <div className='seat'></div>
-          <div className='seat'></div>
-          <div className='seat'></div>
-          <div className='seat'></div>
-          <div className='seat'></div>
-        </div>
-        <div className='row'>
-          <div className='seat'></div>
-          <div className='seat'></div>
-          <div className='seat'></div>
-          <div className='occupied seat'></div>
-          <div className='occupied seat'></div>
-          <div className='seat'></div>
-          <div className='seat'></div>
-          <div className='seat'></div>
-        </div>
-        <div className='row'>
-          <div className='seat'></div>
-          <div className='seat'></div>
-          <div className='seat'></div>
-          <div className='seat'></div>
-          <div className='seat'></div>
-          <div className='seat'></div>
-          <div className='occupied seat'></div>
-          <div className='occupied seat'></div>
-        </div>
-        <div className='row'>
-          <div className='seat'></div>
-          <div className='seat'></div>
-          <div className='seat'></div>
-          <div className='seat'></div>
-          <div className='seat'></div>
-          <div className='seat'></div>
-          <div className='seat'></div>
-          <div className='seat'></div>
-        </div>
-        <div className='row'>
-          <div className='seat'></div>
-          <div className='seat'></div>
-          <div className='seat'></div>
-          <div className='occupied seat'></div>
-          <div className='occupied seat'></div>
-          <div className='seat'></div>
-          <div className='seat'></div>
-          <div className='seat'></div>
-        </div>
-        <div className='row'>
-          <div className='seat'></div>
-          <div className='seat'></div>
-          <div className='seat'></div>
-          <div className='seat'></div>
-          <div className='occupied seat'></div>
-          <div className='occupied seat'></div>
-          <div className='occupied seat'></div>
-          <div className='seat'></div>
-        </div>
-      </div>
+      <SeatContainer />
       <p className='text'>
         You have selected <span id='count'>0</span> seats for a price of $
         <span id='total'>0</span>

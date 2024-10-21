@@ -9,7 +9,6 @@
 body {
   background-color: #242333;
   color: #fff;
-  font-family: 'Poppins', sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,10 +19,16 @@ body {
 
 .movie-container {
   margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
 }
 
 .movie-container select {
   background-color: #fff;
+  color: #000;
   border: 0;
   border-radius: 5px;
   font-size: 14px;
@@ -37,6 +42,10 @@ body {
 
 .container {
   perspective: 1000px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 30px;
 }
 
@@ -103,7 +112,7 @@ body {
 .screen {
   background-color: #fff;
   height: 70px;
-  width: 100%;
+  width: 50%;
   margin: 15px 0;
   transform: rotateX(-45deg);
   box-shadow: 0 3px 10px rgba(255, 255, 255, 0.7);
