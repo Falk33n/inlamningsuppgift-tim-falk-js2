@@ -1,6 +1,6 @@
 'use client';
 
-import { Seat, SelectedSeats, Skeleton } from '@/components';
+import { Seat, type SelectedSeats, Skeleton } from '@/components';
 import { useEffect, useState } from 'react';
 
 export const SeatRow = ({ setSelectedSeats }: SelectedSeats) => {

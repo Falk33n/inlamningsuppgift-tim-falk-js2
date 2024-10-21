@@ -1,11 +1,5 @@
-import { MovieSelection, TheaterContainer, UIExplanation } from '@/components';
+import { HomeContainer } from '@/components';
 
 export default function Home() {
-  return (
-    <>
-      <MovieSelection />
-      <UIExplanation />
-      <TheaterContainer />
-    </>
-  );
+  return <HomeContainer />;
 }

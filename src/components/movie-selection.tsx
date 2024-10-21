@@ -2,29 +2,37 @@
 
 import { Skeleton } from '@/components';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import {
+  forwardRef,
+  type SelectHTMLAttributes,
+  useEffect,
+  useState,
+} from 'react';
 
 type MovieProps = {
   title: string;
   price: number;
 }[];
 
-export const MovieSelection = () => {
+export const MovieSelection = forwardRef<
+  HTMLSelectElement,
+  SelectHTMLAttributes<HTMLSelectElement>
+>((_, ref) => {
   const [movies, setMovies] = useState<MovieProps>([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const getMovies = async () => {
-    try {
-      const res = await axios.get('http://localhost:5000/movies');
-      setMovies(res.data);
-      setIsLoading(false);
-    } catch (e) {
-      console.error(`Failed to retrieve movies, ${e}`);
-      setIsLoading(false);
-    }
-  };
-
   useEffect(() => {
+    const getMovies = async () => {
+      try {
+        const res = await axios.get('http://localhost:5000/movies');
+        setMovies(res.data);
+        setIsLoading(false);
+      } catch (e) {
+        console.error(`Failed to retrieve movies, ${e}`);
+        setIsLoading(false);
+      }
+    };
+
     getMovies();
   }, []);
 
@@ -35,6 +43,7 @@ export const MovieSelection = () => {
       <select
         name='movie'
         id='movie'
+        ref={ref}
       >
         {movies.map((movie, i) => (
           <option
@@ -47,6 +56,6 @@ export const MovieSelection = () => {
       </select>
     </div>
   );
-};
+});
 
 MovieSelection.displayName = 'MovieSelection';

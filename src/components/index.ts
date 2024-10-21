@@ -1,3 +1,4 @@
+export * from './home-container';
 export * from './movie-selection';
 export * from './seat';
 export * from './seat-container';

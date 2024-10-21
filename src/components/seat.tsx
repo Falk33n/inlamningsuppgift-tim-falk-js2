@@ -1,6 +1,6 @@
 'use client';
 
-import { SelectedSeats } from '@/components';
+import type { SelectedSeats } from '@/components';
 import { useState } from 'react';
 
 type SeatProps = {
