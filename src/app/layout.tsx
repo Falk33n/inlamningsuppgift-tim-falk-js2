@@ -4,7 +4,7 @@ import './globals.scss';
 
 const robotoCondensed = Roboto_Condensed({
   subsets: ['latin'],
-  weight: ['400', '700'],
+  weight: ['400', '500', '700'],
   fallback: ['Helvetica', 'Arial', 'sans-serif'],
   style: ['normal', 'italic'],
 });
@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body
-        className={`${robotoCondensed.className} antialiased w-full p-4 md:w-[50vw] mx-auto`}
+        className={`${robotoCondensed.className} antialiased w-full p-4 md:w-[80vw] lg:w-[50vw] mx-auto`}
       >
         {children}
       </body>

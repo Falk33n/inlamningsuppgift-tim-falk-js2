@@ -1,4 +1,34 @@
+'use client';
+
+import { Skeleton } from '@/components';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+
+type MovieProps = {
+  title: string;
+  price: number;
+}[];
+
 export const MovieSelection = () => {
+  const [movies, setMovies] = useState<MovieProps>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const getMovies = async () => {
+    try {
+      const res = await axios.get('http://localhost:5000/movies');
+      setMovies(res.data);
+      setIsLoading(false);
+    } catch (e) {
+      console.error(`Failed to retrieve movies, ${e}`);
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    getMovies();
+  }, []);
+
+  if (isLoading) return <Skeleton />;
   return (
     <div className='movie-container'>
       <label htmlFor='movie'>Pick a movie:</label>
@@ -6,10 +36,14 @@ export const MovieSelection = () => {
         name='movie'
         id='movie'
       >
-        <option value='100'>Fast and furious 6 (100 kr)</option>
-        <option value='50'>The mummy returns (50 kr)</option>
-        <option value='70'>Jumanji: Welcome to the Jungle (70 kr)</option>
-        <option value='40'>Rampage (40 kr)</option>
+        {movies.map((movie, i) => (
+          <option
+            key={i}
+            value={movie.price}
+          >
+            {movie.title}: {movie.price} kr
+          </option>
+        ))}
       </select>
     </div>
   );
