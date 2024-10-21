@@ -1,24 +1,20 @@
-'use client';
+import { SeatRow } from '@/components';
 
-import { SeatRow, TotalPrice } from '@/components';
-import { useState } from 'react';
+export type SelectedSeats = {
+  setSelectedSeats: (selectedSeats: (prev: number) => number) => void;
+};
 
-export const SeatContainer = () => {
-  const [selectedSeats, setSelectedSeats] = useState(0);
-
+export const SeatContainer = ({ setSelectedSeats }: SelectedSeats) => {
   return (
-    <>
-      <div className='container'>
-        <div className='screen' />
-        {Array.from({ length: 6 }).map((_, i) => (
-          <SeatRow
-            key={i}
-            setSelectedSeats={setSelectedSeats}
-          />
-        ))}
-      </div>
-      <TotalPrice selectedSeats={selectedSeats} />
-    </>
+    <div className='container'>
+      <div className='screen' />
+      {Array.from({ length: 6 }).map((_, i) => (
+        <SeatRow
+          key={i}
+          setSelectedSeats={setSelectedSeats}
+        />
+      ))}
+    </div>
   );
 };
 

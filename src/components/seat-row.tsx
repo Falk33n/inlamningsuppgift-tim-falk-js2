@@ -1,13 +1,9 @@
 'use client';
 
-import { Seat } from '@/components';
+import { Seat, SelectedSeats, Skeleton } from '@/components';
 import { useEffect, useState } from 'react';
 
-type SeatRowProps = {
-  setSelectedSeats: (selectedSeats: (prev: number) => number) => void;
-};
-
-export const SeatRow = ({ setSelectedSeats }: SeatRowProps) => {
+export const SeatRow = ({ setSelectedSeats }: SelectedSeats) => {
   const [seats, setSeats] = useState<boolean[]>([]);
 
   // Ensures that the random occupied seats only gets determined once or when user changes movie
@@ -16,6 +12,7 @@ export const SeatRow = ({ setSelectedSeats }: SeatRowProps) => {
     setSeats(occupiedSeats);
   }, []);
 
+  if (seats.length === 0) return <Skeleton className='w-52 h-[1.15rem]' />;
   return (
     <div className='row'>
       {seats.map((isOccupied, i) => (

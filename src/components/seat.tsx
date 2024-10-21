@@ -1,16 +1,18 @@
 'use client';
 
+import { SelectedSeats } from '@/components';
 import { useState } from 'react';
 
 type SeatProps = {
   isOccupied?: boolean;
-  setSelectedSeats: (selectedSeats: (prev: number) => number) => void;
+  setSelectedSeats: SelectedSeats['setSelectedSeats'];
 };
 
 export const Seat = ({ isOccupied = false, setSelectedSeats }: SeatProps) => {
   const [isSelected, setIsSelected] = useState(false);
 
   const handleClick = () => {
+    if (isOccupied) return;
     const newSelectionState = !isSelected;
     setIsSelected(newSelectionState);
     setSelectedSeats((prev) => prev + (newSelectionState ? 1 : -1));
