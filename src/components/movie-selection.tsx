@@ -26,13 +26,12 @@ export const MovieSelection = forwardRef<
       try {
         const res = await axios.get('http://localhost:5000/movies');
         setMovies(res.data);
-        setIsLoading(false);
       } catch (e) {
         console.error(`Failed to retrieve movies, ${e}`);
-        setIsLoading(false);
       }
     };
 
+    setIsLoading(false);
     getMovies();
   }, []);
 
@@ -52,7 +51,7 @@ export const MovieSelection = forwardRef<
             key={i}
             value={movie.price}
           >
-            {movie.title}: {movie.price} kr
+            {movie.title}: ${movie.price}
           </option>
         ))}
       </select>

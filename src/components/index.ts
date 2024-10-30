@@ -1,3 +1,5 @@
+export * from './book-movie-dialog';
+export * from './book-movie-form';
 export * from './home-container';
 export * from './movie-selection';
 export * from './seat';
@@ -6,4 +8,5 @@ export * from './seat-row';
 export * from './skeleton';
 export * from './theater-container';
 export * from './total-price';
+export * from './ui';
 export * from './ui-explanation';

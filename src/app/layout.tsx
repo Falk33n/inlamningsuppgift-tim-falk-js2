@@ -23,9 +23,11 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body
-        className={`${robotoCondensed.className} antialiased w-full p-4 md:w-[80vw] lg:w-[50vw] mx-auto`}
+        className={`${robotoCondensed.className} antialiased w-full p-4 min-h-screen`}
       >
-        {children}
+        <div className='flex flex-col justify-center items-center gap-6 mx-auto w-full md:w-[80vw] lg:w-[50vw]'>
+          {children}
+        </div>
         <Toaster />
       </body>
     </html>

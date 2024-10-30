@@ -22,7 +22,7 @@ const formSchema = z.object({
   }),
 });
 
-export const BookMovie = () => {
+export const BookMovieForm = () => {
   const { toast } = useToast();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -34,6 +34,7 @@ export const BookMovie = () => {
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
     toast({
+      variant: 'success',
       title: 'Success!',
       description: "You're seats are successfully booked.",
     });
@@ -70,4 +71,4 @@ export const BookMovie = () => {
   );
 };
 
-BookMovie.displayName = 'BookMovie';
+BookMovieForm.displayName = 'BookMovieForm';

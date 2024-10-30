@@ -1,6 +1,11 @@
 'use client';
 
-import { MovieSelection, TheaterContainer, UIExplanation } from '@/components';
+import {
+  BookMovieDialog,
+  MovieSelection,
+  TheaterContainer,
+  UIExplanation,
+} from '@/components';
 import { useRef, useState } from 'react';
 
 export const HomeContainer = () => {
@@ -28,6 +33,7 @@ export const HomeContainer = () => {
         setSelectedSeats={setSelectedSeats}
         selectedMovie={selectedMovie}
       />
+      <BookMovieDialog />
     </>
   );
 };
