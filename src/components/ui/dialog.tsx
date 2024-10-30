@@ -40,8 +40,8 @@ const DialogContent = React.forwardRef<
       {...props}
     >
       {children}
-      <DialogPrimitive.Close className='top-4 right-4 absolute data-[state=open]:bg-accent opacity-70 hover:opacity-100 rounded-sm focus:ring-2 focus:ring-ring ring-offset-background transition-opacity focus:outline-none focus:ring-offset-2 data-[state=open]:text-muted-foreground disabled:pointer-events-none'>
-        <Cross2Icon className='w-4 h-4' />
+      <DialogPrimitive.Close className='top-4 right-4 absolute opacity-70 hover:opacity-100 rounded-sm focus:ring-2 focus:ring-ring ring-offset-background focus:ring-offset-2 text-foreground transition-opacity focus:outline-none disabled:pointer-events-none'>
+        <Cross2Icon className='w-4 h-4 text-foreground' />
         <span className='sr-only'>Close</span>
       </DialogPrimitive.Close>
     </DialogPrimitive.Content>
@@ -114,5 +114,5 @@ export {
   DialogOverlay,
   DialogPortal,
   DialogTitle,
-  DialogTrigger,
+  DialogTrigger
 };

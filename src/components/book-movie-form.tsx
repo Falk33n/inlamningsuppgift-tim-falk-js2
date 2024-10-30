@@ -17,8 +17,11 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
 const formSchema = z.object({
-  username: z.string().min(2, {
-    message: 'Username must be at least 2 characters.',
+  fullName: z.string().min(2, {
+    message: 'Full name must be at least 3 characters.',
+  }),
+  phoneNumber: z.string().min(2, {
+    message: 'Phone number must be at least 9 characters.',
   }),
 });
 
@@ -27,7 +30,8 @@ export const BookMovieForm = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      username: '',
+      fullName: '',
+      phoneNumber: '',
     },
   });
 
@@ -36,7 +40,7 @@ export const BookMovieForm = () => {
     toast({
       variant: 'success',
       title: 'Success!',
-      description: "You're seats are successfully booked.",
+      description: 'Your seats have been successfully booked.',
     });
   }
 
@@ -48,18 +52,38 @@ export const BookMovieForm = () => {
       >
         <FormField
           control={form.control}
-          name='username'
+          name='fullName'
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Username</FormLabel>
+              <FormLabel>Full Name</FormLabel>
               <FormControl>
                 <Input
-                  placeholder='shadcn'
+                  placeholder='E.g. Juan John'
                   {...field}
                 />
               </FormControl>
-              <FormDescription>
-                This is your public display name.
+              <FormDescription className='sr-only'>
+                Your full name
+              </FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name='phoneNumber'
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Phone Number</FormLabel>
+              <FormControl>
+                <Input
+                  placeholder='E.g. +46.....'
+                  type='tel'
+                  {...field}
+                />
+              </FormControl>
+              <FormDescription className='sr-only'>
+                Your phone number
               </FormDescription>
               <FormMessage />
             </FormItem>

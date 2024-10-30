@@ -17,10 +17,10 @@ export const BookMovieDialog = () => {
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Are you absolutely sure?</DialogTitle>
+          <DialogTitle className='capitalize'>Book seats</DialogTitle>
           <DialogDescription>
-            This action cannot be undone. This will permanently delete your
-            account and remove your data from our servers.
+            Book your seats by filling in the form, press Submit when
+            you&apos;re done.
           </DialogDescription>
         </DialogHeader>
         <BookMovieForm />
