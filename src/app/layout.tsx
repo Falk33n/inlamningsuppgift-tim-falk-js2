@@ -1,3 +1,4 @@
+import { Toaster } from '@/components/ui';
 import type { Metadata } from 'next';
 import { Roboto_Condensed } from 'next/font/google';
 import './globals.scss';
@@ -25,6 +26,7 @@ export default function RootLayout({
         className={`${robotoCondensed.className} antialiased w-full p-4 md:w-[80vw] lg:w-[50vw] mx-auto`}
       >
         {children}
+        <Toaster />
       </body>
     </html>
   );
