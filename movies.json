@@ -1,0 +1,20 @@
+{
+  "movies": [
+    {
+      "title": "The Lion King",
+      "price": 100
+    },
+    {
+      "title": "Mowgli: Legend of the Jungle",
+      "price": 40
+    },
+    {
+      "title": "Doctor Strange",
+      "price": 120
+    },
+    {
+      "title": "John Wick",
+      "price": 60
+    }
+  ]
+}
