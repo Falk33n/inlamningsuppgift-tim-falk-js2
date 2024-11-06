@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "json": "json-server --watch movies.json --port 5000"
+    "json": "json-server --watch /public/movies.json --port 5000"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
