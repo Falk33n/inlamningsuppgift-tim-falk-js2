@@ -24,8 +24,10 @@ export const MovieSelection = forwardRef<
   useEffect(() => {
     const getMovies = async () => {
       try {
-        const res = await axios.get('/movies.json');
-        setMovies(res.data);
+        const res = await axios.get(
+          'https://falk33n.github.io/inlamningsuppgift-tim-falk-js2/movies.json'
+        );
+        setMovies(res.data.movies);
       } catch (e) {
         console.error(`Failed to retrieve movies, ${e}`);
       }
